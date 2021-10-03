@@ -1,0 +1,12 @@
+<launch>
+    <arg name="config_path" default = "$(find tracking)/../config/euroc_config.yaml" />
+    
+    <node name="tracking" pkg="tracking" type="tracking" output="log">
+        <param name="config_file" type="string" value="$(arg config_path)" />
+    </node>
+
+    <node name="back_end" pkg="back_end" type="back_end" output="screen">
+        <param name="config_file" type="string" value="$(arg config_path)" />
+    </node>
+
+</launch>
